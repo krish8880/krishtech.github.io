@@ -5,106 +5,107 @@
 <title>KrishTech</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ===== BASIC STYLES ===== -->
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
 body{background:#000;color:#fff;overflow-x:hidden;}
 
-/* ===== STAR BACKGROUND ===== */
 #stars{
   position:fixed;top:0;left:0;width:100%;height:100%;
   background:url("https://i.imgur.com/3Z3ZhPw.png");
   opacity:0.3;pointer-events:none;
-  animation:starMove 20s linear infinite;
+  animation:moveStars 35s linear infinite;
 }
-@keyframes starMove{from{transform:translateY(0);}to{transform:translateY(-600px);}}
+@keyframes moveStars{
+  from{transform:translateY(0);}
+  to{transform:translateY(-800px);}
+}
 
-/* ===== INTRO (ROCKET) ===== */
 #intro{
-  width:100%;height:100vh;display:flex;justify-content:center;align-items:flex-end;
-  background:black;position:relative;overflow:hidden;
+  width:100%;height:100vh;background:black;
+  display:flex;justify-content:center;align-items:flex-end;
+  position:relative;overflow:hidden;
 }
 
 #rocket{
   width:120px;height:120px;border-radius:50%;
-  background:radial-gradient(circle,#ff00dd,#6a00ff,#29006b);
-  display:flex;justify-content:center;align-items:center;font-size:40px;
-  font-weight:bold;position:absolute;bottom:40px;
-  transition:transform 0.2s linear;
+  background:radial-gradient(circle,#ff00cc,#8800ff,#550099);
+  display:flex;justify-content:center;align-items:center;
+  font-size:40px;font-weight:bold;
+  position:absolute;bottom:40px;
+  transition:transform 0.15s linear;
 }
 
 .fire{
   width:25px;height:25px;border-radius:50%;
   background:radial-gradient(circle,orange,red);
-  position:absolute;bottom:-25px;filter:blur(4px);
-  animation:firepulse .2s infinite alternate;
+  position:absolute;bottom:-25px;
+  filter:blur(4px);
+  animation:firePulse .2s infinite alternate;
 }
-@keyframes firepulse{from{opacity:0.3;transform:scale(1);}to{opacity:1;transform:scale(1.8);}}
+@keyframes firePulse{
+  from{transform:scale(1);opacity:0.4;}
+  to{transform:scale(1.6);opacity:1;}
+}
 
-/* ===== FLASH EXPLOSION ===== */
 #flash{
   position:absolute;top:0;left:0;width:100%;height:100%;
   background:#fff;opacity:0;pointer-events:none;
 }
 
-/* ===== MAIN WEBSITE ===== */
 #main{
   display:none;background:#0d0d0d;min-height:100vh;
 }
 
-/* ===== NAV ===== */
 nav{
-  width:100%;padding:20px 50px;display:flex;justify-content:space-between;
-  position:fixed;top:0;left:0;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);
+  width:100%;padding:20px 50px;display:flex;
+  justify-content:space-between;align-items:center;
+  position:fixed;top:0;left:0;
+  background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);
 }
 nav .logo{font-size:28px;font-weight:700;}
 nav ul{display:flex;gap:25px;}
-nav a{color:#fff;text-decoration:none;letter-spacing:1px;}
+nav a{color:white;text-decoration:none;letter-spacing:1px;}
 
-/* ===== HERO ===== */
 .hero{
-  height:100vh;display:flex;align-items:center;padding-left:80px;position:relative;
+  height:100vh;width:100%;
+  display:flex;align-items:center;
+  padding-left:80px;position:relative;
 }
 .blob{
   width:55%;height:100%;position:absolute;right:0;top:0;
   background:linear-gradient(135deg,#ff00cc,#ff8800,#6600ff);
   filter:blur(100px);
   clip-path:polygon(40% 0%,100% 0%,100% 100%,30% 100%,15% 60%,30% 40%);
-  z-index:0;
 }
 .heroText{z-index:10;}
 .heroText h1{font-size:80px;font-weight:700;}
 .heroText p{font-size:22px;opacity:0.8;}
 
-/* ===== SECTIONS ===== */
-section.content{padding:120px 70px;}
-section h2{font-size:45px;margin-bottom:40px;}
-
-/* ===== CARDS ===== */
+.content{padding:120px 70px;}
+.content h2{font-size:45px;margin-bottom:30px;}
 .cards{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
 }
 .card{
-  background:rgba(255,255,255,0.05);padding:25px;border-radius:15px;
-  backdrop-filter:blur(8px);text-align:center;transition:0.2s;
+  background:rgba(255,255,255,0.05);
+  padding:25px;border-radius:15px;backdrop-filter:blur(8px);
+  text-align:center;transition:0.25s;
 }
 .card:hover{transform:scale(1.05);}
-
-/* ===== FOOTER ===== */
 footer{text-align:center;padding:70px 0;font-size:20px;}
 </style>
+
 </head>
 <body>
 
 <div id="stars"></div>
 
-<!-- ===== INTRO ROCKET ===== -->
 <div id="intro">
   <div id="rocket">K<div class="fire"></div></div>
   <div id="flash"></div>
 </div>
 
-<!-- ===== MAIN WEBSITE ===== -->
 <div id="main">
 
 <nav>
@@ -117,7 +118,6 @@ footer{text-align:center;padding:70px 0;font-size:20px;}
   </ul>
 </nav>
 
-<!-- HERO -->
 <header class="hero">
   <div class="blob"></div>
   <div class="heroText">
@@ -126,13 +126,11 @@ footer{text-align:center;padding:70px 0;font-size:20px;}
   </div>
 </header>
 
-<!-- ABOUT -->
 <section id="about" class="content">
   <h2>ABOUT ME</h2>
-  <p>I am Krish, a passionate developer who loves building smart, fast and beautiful digital experiences.</p>
+  <p>I am Krish, a passionate developer who loves building smart and beautiful digital experiences.</p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="content">
   <h2>SKILLS</h2>
   <div class="cards">
@@ -145,7 +143,6 @@ footer{text-align:center;padding:70px 0;font-size:20px;}
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="content">
   <h2>PROJECTS</h2>
   <div class="cards">
@@ -155,7 +152,6 @@ footer{text-align:center;padding:70px 0;font-size:20px;}
   </div>
 </section>
 
-<!-- CONTACT -->
 <footer id="contact">
   <h2>CONTACT</h2>
   <p>Email: krish@example.com</p>
@@ -163,21 +159,17 @@ footer{text-align:center;padding:70px 0;font-size:20px;}
 
 </div>
 
-<!-- ===== SCRIPT (Rocket Scroll + Blast) ===== -->
 <script>
 let rocket=document.getElementById("rocket");
 let flash=document.getElementById("flash");
 let intro=document.getElementById("intro");
 let main=document.getElementById("main");
-
 let launched=false;
 
 window.addEventListener("scroll",()=>{
   if(launched) return;
-
   let y=window.scrollY;
   rocket.style.transform=`translateY(${-y}px)`;
-
   if(y>300){
     launched=true;
     flash.style.transition="0.3s";
